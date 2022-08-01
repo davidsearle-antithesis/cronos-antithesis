@@ -1,0 +1,27 @@
+chainmaind:  # The chain-id
+  validators:
+    - coins: 10cro # Tokens allocated for the first validator
+      staked: 10cro # Tokens that were staked by the validator in the genesis
+      moniker: awesome0 # Optional, default to node{i}
+      hostname: chainmainnode1 # Optional, default to localhost
+      base_port: 26650 # Optional, default to BASE_PROT(26650) + i * 10
+    - coins: 10cro
+      staked: 10cro
+      moniker: awesome1
+      hostname: chainmainnode2      
+      base_port: 26650
+  accounts:
+    - name: community
+      coins: 100cro
+    - name: ecosystem
+      coins: 200cro
+    - name: reserve
+      coins: 200cro
+      vesting: "1d" # Optional, vesting period of the account
+    - name: launch
+      coins: 100cro
+  genesis: # Network parameters in the genesis can be specified in here
+    app_state:
+      staking:
+        params:
+          unbonding_time: "10s"
